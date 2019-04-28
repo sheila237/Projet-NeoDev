@@ -1,7 +1,7 @@
 <?PHP
 //include "categories/config.php";
 
-include "categories/core/categoriesC.php";
+include "../../core/categoriesC.php";
 
 $categorie1C=new CategoriesC();
 $listeCategories=$categorie1C->afficherCategories();
@@ -767,7 +767,7 @@ $listeCategories=$categorie1C->afficherCategories();
 
                             <h4>Liste des catégories</h4>
                             <div class="add-product">
-                                                                <!--a href="#">Add Library</a>-->
+                            <a href="add-library-assets.php">Ajout Produits</a>
                             </div>
                             <div class="asset-inner">
                                 <div  id= "resultat">

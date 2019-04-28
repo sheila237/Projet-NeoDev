@@ -1,6 +1,6 @@
 <?php 
-include_once 'produits/entities/produit.php';
-include_once 'produits/core/produitsCore.php';
+include_once '../../entities/produit.php';
+include_once '../../core/produitsCore.php';
 
 
 if (isset($_POST['search_prod']) && !empty($_POST['search_prod'])) {

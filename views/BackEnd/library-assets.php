@@ -1,8 +1,37 @@
 <?PHP
-include "produits/entities/produit.php";
-include "produits/core/produitsCore.php";
-
+include "../../entities/produit.php";
+include "../../core/produitsCore.php";
+$produit1C=new ProduitsCore();
+$listeProduits=$produit1C->afficherProduits();
+$listeProduits1=$produit1C->afficherProduits();
+$i=0;
+$compteur=0;
+$test=0;
+$db = config::getConnexion();
 //var_dump($listeEmployes->fetchAll());
+$messagesParPage=4; //Nous allons afficher 5 messages par page.
+
+foreach($listeProduits1 as $row){ 
+$compteur++;}          //$messagesParPage=5; //Nous allons afficher 5 messages par page.
+$nombreDePages=ceil($compteur/$messagesParPage);
+
+if(isset($_GET['page'])) // Si la variable $_GET['page'] existe...
+{
+     $pageActuelle=intval($_GET['page']);
+ 
+     if($pageActuelle>$nombreDePages) // Si la valeur de $pageActuelle (le numéro de la page) est plus grande que $nombreDePages...
+     {
+          $pageActuelle=$nombreDePages;
+     }
+}
+else // Sinon
+{
+     $pageActuelle=1; // La page actuelle est la n°1    
+}
+$premiereEntree=($pageActuelle-1)*$messagesParPage; // On calcul la première entrée à lire
+ 
+// La requête sql pour récupérer les messages de la page actuelle.
+$listeProduits=$db->query('SELECT * From produits inner join categorie on produits.id=categorie.id ORDER BY IDP DESC LIMIT '.$premiereEntree.', '.$messagesParPage.'');
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -288,8 +317,7 @@ include "produits/core/produitsCore.php";
                                                 </li>
                                                 <li class="nav-item">
                                                     <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
-															<img src="img/product/pro4.jpg" alt="" />
-															<span class="admin-name">Prof.Anderson</span>
+															<span class="admin-name">Marthe Seila</span>
 															<i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
 														</a>
                                                     <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
@@ -764,7 +792,7 @@ include "produits/core/produitsCore.php";
                         <div class="product-status-wrap">
                             <h4>Liste des produits</h4>
                             <div class="add-product">
-                                 <a href="web%20(1)/web/womens.html">Ajout</a>
+                                 <a href="../../adminr/views/womens.php">Aperçu</a>
 
                                 <!--a href="#">Add Library</a>-->
                             </div>
@@ -787,9 +815,7 @@ include "produits/core/produitsCore.php";
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <?PHP 
-                                $produit1C=new ProduitsCore();
-                                $listeProduits=$produit1C->afficherProduits();
+                                <?PHP
                                 foreach($listeProduits as $row){ ?>
                                     <tr>
                                         <td><?PHP echo $row['Nom']; ?></td>
@@ -817,23 +843,40 @@ include "produits/core/produitsCore.php";
 
                                             </form>
                                             
+
                                         </td>
                                     </tr>
-                                    <?PHP } ?>
+
+                                    <?PHP }
+                                   // echo '<p align="center">Page : ';
+                                    for ($i=1; $i<=$nombreDePages ; $i++)
+                                     {
+                                        if ($i==$pageActuelle) {
+                                            # code...
+                                         ?>
                                     </tbody>
                                 </table>
                                 </div>
                             </div>
                             <div class="custom-pagination">
-								<ul class="pagination">
-									<li class="page-item"><a class="page-link" href="#">Previous</a></li>
-									<li class="page-item"><a class="page-link" href="#">1</a></li>
-									<li class="page-item"><a class="page-link" href="#">2</a></li>
-									<li class="page-item"><a class="page-link" href="#">3</a></li>
-									<li class="page-item"><a class="page-link" href="#">Next</a></li>
-								</ul>
+                                <a class="page-link" href="#"><?php echo $i; ?></a>
+                                <?php
+                                         }
+                                         else
+                                         {
+
+                                            ?>
+                                            <a href="library-assets.php?page=<?php echo $i; ?>" class="page-link">
+                                                                            <?php echo $i;?> </a>
+                                                                            <?php
+                                         }
+                                        }
+                                    echo '</p>';
+                                    ?>
+                                
                             </div>
-                        </div>
+
+                        
                     </div>
                 </div>
             </div>

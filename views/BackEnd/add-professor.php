@@ -1,7 +1,7 @@
 <?PHP
 //include "categories/config.php";
-include "categories/entities/categorie.php";
-include "categories/core/categoriesC.php";
+include "../../entities/categorie.php";
+include "../../core/categoriesC.php";
 //*/
 
 ?>
@@ -803,15 +803,6 @@ include "categories/core/categoriesC.php";
                                                                     <input name="soiree" type="text" class="form-control" placeholder="Nom de la Catégorie soirée">
                                                                 </div>-->
                                                             </div>
-                                                                <div class="form-group alert-up-pd">
-                                                                    <div class="dz-message needsclick download-custom">
-                                                                        <i class="fa fa-download edudropnone" aria-hidden="true"></i>
-                                                                        <h2 class="edudropnone">Drop image here or click to upload.</h2>
-                                                                        <p class="edudropnone"><span class="note needsclick">(This is just a demo dropzone. Selected image is <strong>not</strong> actually uploaded.)</span>
-                                                                        </p>
-                                                                        <input name="imageico" class="hd-pro-img" type="text" />
-                                                                    </div>
-                                                                </div>
 
                                                             </div>
                                                              <!--div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">-->

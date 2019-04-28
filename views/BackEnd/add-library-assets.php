@@ -1,9 +1,9 @@
 <?PHP
-include "produits/config.php";
+include "config.php";
 
-include "produits/entities/produit.php";
-include "produits/core/produitsC.php";
-include "categories/core/categoriesCore.php";
+include "../../entities/produit.php";
+include "../../core/produitsC.php";
+include "../../core/categoriesCore.php";
 $categorie1C=new CategoriesCore();
 $listeCategories=$categorie1C->afficherCategories();
 
@@ -874,10 +874,16 @@ $listeCategories=$categorie1C->afficherCategories();
                                                                     <input name="stock" type="number" class="form-control" placeholder="Quantité">
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <input name="etat" type="text" class="form-control" placeholder="Etat de l'article">
+                                                                	<p> Etat : 
+                                                                	<select name="etat" >
+																		<option></option>
+																		<option value="Achat">Achat</option>
+																		<option value="Location">Location</option>
+																		</select>
+																		</p>
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <!--input name="id" type="number" class="form-control" placeholder="id de la catégorie">-->
+                                                                    <p>Catégorie :
                                                                     <select name="id">
                                                                     <?PHP
                                                                 foreach($listeCategories as $row){
@@ -885,7 +891,8 @@ $listeCategories=$categorie1C->afficherCategories();
                                                                     <option value="<?PHP echo $row['id']; ?>"><?PHP echo $row['type'] ?>
                                                                     </option>
                                                                     <?PHP } ?>
-                                                                </select> 
+                                                                </select>
+                                                                </p> 
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -917,7 +924,7 @@ $message='
         <div align="center">
             <img src=""/>
             <br />
-            Produit ajouté !!!
+            Produit ajouté avec succès!!!
             
         </div>
     </body>
@@ -926,7 +933,7 @@ $message='
 
 mail("marthesheila82@gmail.com", "Salut ", $message, $header);
 
-//header('Location: ../library-assets.php');  
+
      }
     else{
             echo "champ vide";
@@ -945,6 +952,7 @@ var_dump($employe1);
 //*/
 
 ?>
+<a href="library-assets.php" class="btn btn-primary waves-effect waves-light">Afficher</a>
                                                 </div>
                                             </div>
                                         </div>

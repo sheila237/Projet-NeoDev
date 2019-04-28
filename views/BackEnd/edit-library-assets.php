@@ -1,6 +1,6 @@
 <?PHP
-include "produits/entities/produit.php";
-include "produits/core/produitsCore.php";
+include "../../entities/produit.php";
+include "../../core/produitsCore.php";
 if (isset($_GET['IDP'])){
     $produitC=new ProduitsCore();
     $result=$produitC->recupererProduits($_GET['IDP']);
@@ -12,6 +12,7 @@ if (isset($_GET['IDP'])){
         $stock=$row['stock'];
         $etat=$row['etat'];
         $id=$row['id'];
+        $image=$row['image'];
     ob_start();
 ?> 
 
@@ -810,15 +811,9 @@ if (isset($_GET['IDP'])){
                                                               </div>      
                                                                 <div class="form-group ">
                                                                     <input type="text" name="Taille" value="<?PHP echo $Taille ?>" class="form-control" placeholder="Taille">
-                                                                    </div>
-                                                                <div class="form-group alert-up-pd">
-                                                                    <div class="dz-message needsclick download-custom">
-                                                                        <i class="fa fa-download edudropnone" aria-hidden="true"></i>
-                                                                        <h2 class="edudropnone">Drop image here or click to upload.</h2>
-                                                                        <p class="edudropnone"><span class="note needsclick">(This is just a demo dropzone. Selected image is <strong>not</strong> actually uploaded.)</span>
-                                                                        </p>
-                                                                        <input name="imageico" class="hd-pro-img" type="text" />
-                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group ">
+                                                                    <input name="image" type="file" value="<?PHP echo $image ?>"class="form-control" placeholder="image">
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -852,7 +847,7 @@ if (isset($_GET['IDP'])){
                                                         }
                                                     }
                                                      if (isset($_POST['modifier'])){
-                                                        $produit=new produits($_POST['Nom'],$_POST['Prix'],$_POST['Taille'],$_POST['couleur'],$_POST['stock'], $_POST['etat'] ,$_POST['id'] );
+                                                        $produit=new produits($_POST['Nom'],$_POST['Prix'],$_POST['Taille'],$_POST['couleur'],$_POST['stock'], $_POST['etat'] ,$_POST['id'] , $_POST['image']);
                                                         $produitC->modifierProduits($produit,$_POST['cin_ini']);
                                                         //echo $_POST['cin_ini'];
                                                         header('Location: library-assets.php');

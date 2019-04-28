@@ -1,6 +1,6 @@
 <?php 
-include_once 'categories/entities/categorie.php';
-include_once 'categories/core/categoriesC.php';
+include_once '../../entities/categorie.php';
+include_once '../../core/categoriesC.php';
 
 
 if (isset($_POST['search']) && !empty($_POST['search'])) {

@@ -1,52 +1,20 @@
-<?PHP
-include_once "../../entities/produit.php";
-include_once "../../core/produitsCore.php";
-$produit1C=new ProduitsCore();
-$listeProduits=$produit1C->afficherProduits();
-$listeProduits1=$produit1C->afficherProduits();
-$i=0;
-$compteur=0;
-$test=0;
-$db = config::getConnexion();
-//var_dump($listeEmployes->fetchAll());
-$messagesParPage=4; //Nous allons afficher 5 messages par page.
-
-foreach($listeProduits1 as $row){ 
-$compteur++;}          //$messagesParPage=5; //Nous allons afficher 5 messages par page.
-$nombreDePages=ceil($compteur/$messagesParPage);
-
-if(isset($_GET['page'])) // Si la variable $_GET['page'] existe...
-{
-     $pageActuelle=intval($_GET['page']);
- 
-     if($pageActuelle>$nombreDePages) // Si la valeur de $pageActuelle (le numéro de la page) est plus grande que $nombreDePages...
-     {
-          $pageActuelle=$nombreDePages;
-     }
-}
-else // Sinon
-{
-     $pageActuelle=1; // La page actuelle est la n°1    
-}
-$premiereEntree=($pageActuelle-1)*$messagesParPage; // On calcul la première entrée à lire
- 
-// La requête sql pour récupérer les messages de la page actuelle.
-$listeProduits=$db->query('SELECT * From produits inner join categorie on produits.id=categorie.id ORDER BY IDP DESC LIMIT '.$premiereEntree.', '.$messagesParPage.'');
-//var_dump($listeEmployes->fetchAll());
-?>
 <!--
 	Author: W3layouts
 	Author URL: http://w3layouts.com
 	License: Creative Commons Attribution 3.0 Unported
 	License URL: http://creativecommons.org/licenses/by/3.0/
--->
+--> 
 <!DOCTYPE html>
 <html lang="zxx"> 
+<!-- Head -->
 <head>
-<title>Hager Ayed a E-Commerce & Fashion Category </title><!-- Meta-Tags -->
+
+<title>Hager Ayed a E-Commerce & Fashion Category </title>
+
+<!-- Meta-Tags -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="keywords" content="Hager Ayed a Responsive Web Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible Web Template, Smartphone Compatible Web Template, Free Webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
+<meta name="keywords" content="Groovy Apparel a Responsive Web Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible Web Template, Smartphone Compatible Web Template, Free Webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- //Meta-Tags -->
 
@@ -66,9 +34,7 @@ $listeProduits=$db->query('SELECT * From produits inner join categorie on produi
 <!-- TTF --> <link rel="stylesheet" href="fonts/fontawesome-webfont.ttf" type="text/css" media="all">
 <!-- //Font-Awesome-File-Links -->
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-    <script src="js/function_prod_front.js"></script>
+
 </head>
 <!-- //Head -->
 
@@ -117,17 +83,17 @@ $listeProduits=$db->query('SELECT * From produits inner join categorie on produi
 
 									<div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-2">
 										<p>TORSO</p>
-										<a href="mens.html"><img src="images/men-nav-1.jpg" alt="Hager Ayed"></a>
+										<a href="mens.html"><img src="images/men-nav-1.jpg" alt="Groovy Apparel"></a>
 									</div>
 
 									<div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-3">
 										<p>LEGS</p>
-										<a href="mens.html"><img src="images/men-nav-2.jpg" alt="Hager Ayed"></a>
+										<a href="mens.html"><img src="images/men-nav-2.jpg" alt="Groovy Apparel"></a>
 									</div>
 
 									<div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-4">
 										<p>ACCESSORIES</p>
-										<a href="mens_accessories.html"><img src="images/men-nav-3.jpg" alt="Hager Ayed"></a>
+										<a href="mens_accessories.html"><img src="images/men-nav-3.jpg" alt="Groovy Apparel"></a>
 									</div>
 
 									<div class="clearfix"></div>
@@ -154,18 +120,18 @@ $listeProduits=$db->query('SELECT * From produits inner join categorie on produi
 									</div>
 
 									<div class="col-sm-3 w3layouts-nav-agile w3layouts-womens-nav-agileits w3layouts-womens-nav-agileits-2">
-										<p>ROBES De SOIREE</p>
-										<a href="womens.php"><img src="images/women-nav-11.jpg" alt="Hager Ayed"></a>
+										<p>ROBES DU SOIREE</p>
+										<a href="womens.html"><img src="images/women-nav-11.jpg" alt="Groovy Apparel"></a>
 									</div>
 
 									<div class="col-sm-3 w3layouts-nav-agile w3layouts-womens-nav-agileits w3layouts-womens-nav-agileits-3">
-										<p>ROBES De MARIAGE </p>
-										<a href="womens.php"><img src="images/women-nav-22.jpg" alt="Hager Ayed"></a>
+										<p>ROBES DU MARIAGE </p>
+										<a href="womens.html"><img src="images/women-nav-22.jpg" alt="Groovy Apparel"></a>
 									</div>
 
 									<div class="col-sm-3 w3layouts-nav-agile w3layouts-womens-nav-agileits w3layouts-womens-nav-agileits-4">
-										<p>TOUTES LES ROBES</p>
-										<a href="womens_accessories.html"><img src="images/women-nav-33.jpg" alt="Hager Ayed"></a>
+										<p>TOUS LES ROBES</p>
+										<a href="womens_accessories.html"><img src="images/women-nav-33.jpg" alt="Groovy Apparel"></a>
 									</div>
 
 									<div class="clearfix"></div>
@@ -192,17 +158,17 @@ $listeProduits=$db->query('SELECT * From produits inner join categorie on produi
 
 									<div class="col-sm-3 w3layouts-nav-agile w3layouts-acc-nav-agileits w3layouts-acc-nav-agileits-2">
 										<p>MARIAGE</p>
-										<a href="mens_accessories.html"><img src="images/women-nav-33.jpg" alt="Hager Ayed"></a>
+										<a href="mens_accessories.html"><img src="images/women-nav-33.jpg" alt="Groovy Apparel"></a>
 									</div>
 
 									<div class="col-sm-3 w3layouts-nav-agile w3layouts-acc-nav-agileits w3layouts-acc-nav-agileits-3">
 										<p>WOMEN</p>
-										<a href="womens_accessories.html"><img src="images/other-nav-2.jpg" alt="Hager Ayed"></a>
+										<a href="womens_accessories.html"><img src="images/other-nav-2.jpg" alt="Groovy Apparel"></a>
 									</div>
 
 									<div class="col-sm-3 w3layouts-nav-agile w3layouts-acc-nav-agileits w3layouts-acc-nav-agileits-4">
 										<p>SOIREE</p>
-										<a href="mens_accessories.html"><img src="images/women-nav-11.jpg" alt="Hager Ayed"></a>
+										<a href="mens_accessories.html"><img src="images/women-nav-11.jpg" alt="Groovy Apparel"></a>
 									</div>
 
 									<div class="clearfix"></div>
@@ -230,17 +196,17 @@ $listeProduits=$db->query('SELECT * From produits inner join categorie on produi
 
 									<div class="col-sm-3 w3layouts-nav-agile w3layouts-hot-nav-agileits w3layouts-hot-nav-agileits-2">
 										<p>ROBE DU SOIREE</p>
-										<a href="mens.html"><img src="images/women-nav-11.jpg" alt="Hager Ayed"></a>
+										<a href="mens.html"><img src="images/women-nav-11.jpg" alt="Groovy Apparel"></a>
 									</div>
 
 									<div class="col-sm-3 w3layouts-nav-agile w3layouts-hot-nav-agileits w3layouts-hot-nav-agileits-3">
 										<p>WOMEN</p>
-										<a href="womens.php"><img src="images/women-nav-33.jpg" alt="Hager Ayed"></a>
+										<a href="womens.html"><img src="images/women-nav-33.jpg" alt="Groovy Apparel"></a>
 									</div>
 
 									<div class="col-sm-3 w3layouts-nav-agile w3layouts-hot-nav-agileits w3layouts-hot-nav-agileits-4">
 										<p>ROBE DU MARIAGE</p>
-										<a href="mens_accessories.html"><img src="images/women-nav-22.jpg" alt="Hager Ayed"></a>
+										<a href="mens_accessories.html"><img src="images/women-nav-22.jpg" alt="Groovy Apparel"></a>
 									</div>
 
 									<div class="clearfix"></div>
@@ -251,11 +217,12 @@ $listeProduits=$db->query('SELECT * From produits inner join categorie on produi
 						</li>
 						<li><a href="about.html">INFO</a></li>
 						<li class="wthreesearch">
-							 <form method="POST">
-                                                <table>
-                                                <input id="search_prod_front" type="search" placeholder="Search..." class="search-int form-control">
-                                                </table>
-                                            </form>
+							<form action="#" method="post">
+								<input type="search" name="Search" placeholder="Search for a Product" required="">
+								<button type="submit" class="btn btn-default search" aria-label="Left Align">
+									<i class="fa fa-search" aria-hidden="true"></i>
+								</button>
+							</form>
 						</li>
 						<li class="wthreecartaits wthreecartaits2 cart cart box_1"> 
 						 <form action="#" method="post" class="last"> 
@@ -338,7 +305,7 @@ $listeProduits=$db->query('SELECT * From produits inner join categorie on produi
 
 		<!-- Banner -->
 		<div class="agileheader-banner">
-			<img src="images/womens-banner.jpg" alt="Hager Ayed">
+			<img src="images/womens-banner.jpg" alt="Groovy Apparel">
 		</div>
 		<!-- //Banner -->
 
@@ -356,18 +323,15 @@ $listeProduits=$db->query('SELECT * From produits inner join categorie on produi
 	<!-- Women's-Product-Display -->
 	<div class="wthreeproductdisplay">
 		<div id="cbp-pgcontainer" class="cbp-pgcontainer">
-			<div  id= "resultat_prod_front">
 			<ul class="cbp-pggrid">
-			<?PHP foreach($listeProduits as $row){ ?>
-				
-	            <li class="wthree aits w3l">
+				<li class="wthree aits w3l">
 					<div class="cbp-pgcontent" id="women-1">
 						<span class="cbp-pgrotate"><i class="fa fa-exchange" aria-hidden="true"></i></span>
 						<a href="womens_single.html">
 							<div class="cbp-pgitem a3ls">
 								<div class="cbp-pgitem-flip">
-									<?php echo '<td> <img src="images/' . $row['image']. '" style="width: 130px;height: 130px;"> </td>'; 
-                                        ?>
+									<img src="images/slide-2.jpg" alt="Groovy Apparel">
+									<img src="images/slide-2.jpg" alt="Groovy Apparel">
 								</div>
 							</div>
 						</a>
@@ -379,7 +343,7 @@ $listeProduits=$db->query('SELECT * From produits inner join categorie on produi
 								<span>4.5 <i class="fa fa-star" aria-hidden="true"></i></span>
 							</li>
 							<li class="cbp-pgoptsize agile">
-								<span data-size="XL"><?PHP echo $row['Taille']; ?></span>
+								<span data-size="XL">XL</span>
 								<div class="cbp-pgopttooltip">
 									<span data-size="XL">XL</span>
 									<span data-size="L">L</span>
@@ -402,20 +366,378 @@ $listeProduits=$db->query('SELECT * From produits inner join categorie on produi
 					</div>
 					<a href="womens_single.html">
 						<div class="cbp-pginfo w3layouts">
-							<h3><?PHP echo $row['Nom']; ?></h3>
-							<span class="cbp-pgprice"><?PHP echo $row['Prix']; ?>DT</span>
+							<h3>Striped Top</h3>
+							<span class="cbp-pgprice">60 DT</span>
 						</div>
 					</a>
 				</li>
-       
-             <?PHP }
+				<li class="wthree aits w3l">
+					<div class="cbp-pgcontent" id="women-2">
+						<span class="cbp-pgrotate"><i class="fa fa-exchange" aria-hidden="true"></i></span>
+						<a href="womens_single.html">
+							<div class="cbp-pgitem a3ls">
+								<div class="cbp-pgitem-flip">
+									<img src="images/12-front.jpg" alt="Groovy Apparel">
+									<img src="images/12-back.jpg" alt="Groovy Apparel">
+								</div>
+							</div>
+						</a>
+						<ul class="cbp-pgoptions w3l">
+							<li class="cbp-pgoptcompare">
+								<input type="checkbox" name="checkboxG3" id="checkboxG32" class="css-checkbox w3"><label for="checkboxG32" class="css-label"></label>
+							</li>
+							<li class="cbp-pgoptfav">
+								<span>5 <i class="fa fa-star" aria-hidden="true"></i></span>
+							</li>
+							<li class="cbp-pgoptsize agile">
+								<span data-size="XL">XL</span>
+								<div class="cbp-pgopttooltip">
+									<span data-size="XL">XL</span>
+									<span data-size="L">L</span>
+									<span data-size="M">M</span>
+									<span data-size="S">S</span>
+								</div>
+							</li>
+							<li class="cbp-pgoptcart">
+									<form action="#" method="post">
+										<input type="hidden" name="cmd" value="_cart">
+										<input type="hidden" name="add" value="1"> 
+										<input type="hidden" name="w3l_item" value="Leather Jacket "> 
+										<input type="hidden" name="amount" value="45.00"> 
+										<button type="submit" class="w3l-cart pw3l-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+										<span class="w3-agile-line"> </span>
+										<a href="#" data-toggle="modal" data-target="#myModal1"></a>
+									</form>
+							</li>
+						</ul>
+					</div>
+					<a href="womens_single.html">
+						<div class="cbp-pginfo w3layouts">
+							<h3>Leather Jacket</h3>
+							<span class="cbp-pgprice">$45</span>
+						</div>
+					</a>
+				</li>
+				<li class="wthree aits w3l">
+					<div class="cbp-pgcontent" id="women-3">
+						<span class="cbp-pgrotate"><i class="fa fa-exchange" aria-hidden="true"></i></span>
+						<a href="womens_single.html">
+							<div class="cbp-pgitem a3ls">
+								<div class="cbp-pgitem-flip">
+									<img src="images/13-front.jpg" alt="Groovy Apparel">
+									<img src="images/13-back.jpg" alt="Groovy Apparel">
+								</div>
+							</div>
+						</a>
+						<ul class="cbp-pgoptions w3l">
+							<li class="cbp-pgoptcompare">
+								<input type="checkbox" name="checkboxG33" id="checkboxG33" class="css-checkbox w3"><label for="checkboxG33" class="css-label"></label>
+							</li>
+							<li class="cbp-pgoptfav">
+								<span>5 <i class="fa fa-star" aria-hidden="true"></i></span>
+							</li>
+							<li class="cbp-pgoptsize agile">
+								<span data-size="XL">XL</span>
+								<div class="cbp-pgopttooltip">
+									<span data-size="XL">XL</span>
+									<span data-size="L">L</span>
+									<span data-size="M">M</span>
+									<span data-size="S">S</span>
+								</div>
+							</li>
+							<li class="cbp-pgoptcart">
+									<form action="#" method="post">
+										<input type="hidden" name="cmd" value="_cart">
+										<input type="hidden" name="add" value="1"> 
+										<input type="hidden" name="w3l_item" value="Black Shrug "> 
+										<input type="hidden" name="amount" value="25.00"> 
+										<button type="submit" class="w3l-cart pw3l-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+										<span class="w3-agile-line"> </span>
+										<a href="#" data-toggle="modal" data-target="#myModal1"></a>
+									</form>
+							</li>
+						</ul>
+					</div>
+					<a href="womens_single.html">
+						<div class="cbp-pginfo w3layouts">
+							<h3>Black Shrug</h3>
+							<span class="cbp-pgprice">$25</span>
+						</div>
+					</a>
+				</li>
+				<li class="wthree aits w3l">
+					<div class="cbp-pgcontent" id="women-4">
+						<span class="cbp-pgrotate"><i class="fa fa-exchange" aria-hidden="true"></i></span>
+						<a href="womens_single.html">
+							<div class="cbp-pgitem a3ls">
+								<div class="cbp-pgitem-flip">
+									<img src="images/14-front.jpg" alt="Groovy Apparel">
+									<img src="images/14-back.jpg" alt="Groovy Apparel">
+								</div>
+							</div>
+						</a>
+						<ul class="cbp-pgoptions w3l">
+							<li class="cbp-pgoptcompare">
+								<input type="checkbox" name="checkboxG34" id="checkboxG34" class="css-checkbox w3"><label for="checkboxG34" class="css-label"></label>
+							</li>
+							<li class="cbp-pgoptfav">
+								<span>5 <i class="fa fa-star" aria-hidden="true"></i></span>
+							</li>
+							<li class="cbp-pgoptsize agile">
+								<span data-size="XL">XL</span>
+								<div class="cbp-pgopttooltip">
+									<span data-size="XL">XL</span>
+									<span data-size="L">L</span>
+									<span data-size="M">M</span>
+									<span data-size="S">S</span>
+								</div>
+							</li>
+							<li class="cbp-pgoptcart">
+									<form action="#" method="post">
+										<input type="hidden" name="cmd" value="_cart">
+										<input type="hidden" name="add" value="1"> 
+										<input type="hidden" name="w3l_item" value="Blue Jeans "> 
+										<input type="hidden" name="amount" value="15.00"> 
+										<button type="submit" class="w3l-cart pw3l-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+										<span class="w3-agile-line"> </span>
+										<a href="#" data-toggle="modal" data-target="#myModal1"></a>
+									</form>
+							</li>
+						</ul>
+					</div>
+					<a href="womens_single.html">
+						<div class="cbp-pginfo w3layouts">
+							<h3>Blue Jeans</h3>
+							<span class="cbp-pgprice">$15</span>
+						</div>
+					</a>
+				</li>
+				<li class="wthree aits w3l">
+					<div class="cbp-pgcontent" id="women-5">
+						<span class="cbp-pgrotate"><i class="fa fa-exchange" aria-hidden="true"></i></span>
+						<a href="womens_single.html">
+							<div class="cbp-pgitem a3ls">
+								<div class="cbp-pgitem-flip">
+									<img src="images/15-front.jpg" alt="Groovy Apparel">
+									<img src="images/15-back.jpg" alt="Groovy Apparel">
+								</div>
+							</div>
+						</a>
+						<ul class="cbp-pgoptions w3l">
+							<li class="cbp-pgoptcompare">
+								<input type="checkbox" name="checkboxG35" id="checkboxG35" class="css-checkbox w3"><label for="checkboxG35" class="css-label"></label>
+							</li>
+							<li class="cbp-pgoptfav">
+								<span>5 <i class="fa fa-star" aria-hidden="true"></i></span>
+							</li>
+							<li class="cbp-pgoptsize agile">
+								<span data-size="XL">XL</span>
+								<div class="cbp-pgopttooltip">
+									<span data-size="XL">XL</span>
+									<span data-size="L">L</span>
+									<span data-size="M">M</span>
+									<span data-size="S">S</span>
+								</div>
+							</li>
+							<li class="cbp-pgoptcart">
+								<button class="btn btn-danger agileits my-cart-btn" data-id="women-5" data-name="Blue Legging" data-summary="Blue Legging" data-price="17" data-quantity="1" data-image="images/15-front.jpg"><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+							</li>
+						</ul>
+					</div>
+					<a href="womens_single.html">
+						<div class="cbp-pginfo w3layouts">
+							<h3>Blue Legging</h3>
+							<span class="cbp-pgprice">$17</span>
+						</div>
+					</a>
+				</li>
+				<li class="wthree aits w3l">
+					<div class="cbp-pgcontent" id="women-6">
+						<span class="cbp-pgrotate"><i class="fa fa-exchange" aria-hidden="true"></i></span>
+						<a href="womens_single.html">
+							<div class="cbp-pgitem a3ls">
+								<div class="cbp-pgitem-flip">
+									<img src="images/16-front.jpg" alt="Groovy Apparel">
+									<img src="images/16-back.jpg" alt="Groovy Apparel">
+								</div>
+							</div>
+						</a>
+						<ul class="cbp-pgoptions w3l">
+							<li class="cbp-pgoptcompare">
+								<input type="checkbox" name="checkboxG36" id="checkboxG36" class="css-checkbox w3"><label for="checkboxG36" class="css-label"></label>
+							</li>
+							<li class="cbp-pgoptfav">
+								<span>4.7 <i class="fa fa-star" aria-hidden="true"></i></span>
+							</li>
+							<li class="cbp-pgoptsize agile">
+								<span data-size="XL">XL</span>
+								<div class="cbp-pgopttooltip">
+									<span data-size="XL">XL</span>
+									<span data-size="L">L</span>
+									<span data-size="M">M</span>
+									<span data-size="S">S</span>
+								</div>
+							</li>
+							<li class="cbp-pgoptcart">
+									<form action="#" method="post">
+										<input type="hidden" name="cmd" value="_cart">
+										<input type="hidden" name="add" value="1"> 
+										<input type="hidden" name="w3l_item" value="Black Dress "> 
+										<input type="hidden" name="amount" value="48.00"> 
+										<button type="submit" class="w3l-cart pw3l-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+										<span class="w3-agile-line"> </span>
+										<a href="#" data-toggle="modal" data-target="#myModal1"></a>
+									</form>
+							</li>
+						</ul>
+					</div>
+					<a href="womens_single.html">
+						<div class="cbp-pginfo w3layouts">
+							<h3>Black Dress</h3>
+							<span class="cbp-pgprice">$48</span>
+						</div>
+					</a>
+				</li>
+				<li class="wthree aits w3l">
+					<div class="cbp-pgcontent" id="women-7">
+						<span class="cbp-pgrotate"><i class="fa fa-exchange" aria-hidden="true"></i></span>
+						<a href="womens_single.html">
+							<div class="cbp-pgitem a3ls">
+								<div class="cbp-pgitem-flip">
+									<img src="images/17-front.jpg" alt="Groovy Apparel">
+									<img src="images/17-back.jpg" alt="Groovy Apparel">
+								</div>
+							</div>
+						</a>
+						<ul class="cbp-pgoptions w3l">
+							<li class="cbp-pgoptcompare">
+								<input type="checkbox" name="checkboxG37" id="checkboxG37" class="css-checkbox w3"><label for="checkboxG37" class="css-label"></label>
+							</li>
+							<li class="cbp-pgoptfav">
+								<span>4.5 <i class="fa fa-star" aria-hidden="true"></i></span>
+							</li>
+							<li class="cbp-pgoptsize agile">
+								<span data-size="XL">XL</span>
+								<div class="cbp-pgopttooltip">
+									<span data-size="XL">XL</span>
+									<span data-size="L">L</span>
+									<span data-size="M">M</span>
+									<span data-size="S">S</span>
+								</div>
+							</li>
+							<li class="cbp-pgoptcart">
+									<form action="#" method="post">
+										<input type="hidden" name="cmd" value="_cart">
+										<input type="hidden" name="add" value="1"> 
+										<input type="hidden" name="w3l_item" value="Black Blazer "> 
+										<input type="hidden" name="amount" value="55.00"> 
+										<button type="submit" class="w3l-cart pw3l-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+										<span class="w3-agile-line"> </span>
+										<a href="#" data-toggle="modal" data-target="#myModal1"></a>
+									</form>
+							</li>
+						</ul>
+					</div>
+					<a href="womens_single.html">
+						<div class="cbp-pginfo w3layouts">
+							<h3>Black Blazer</h3>
+							<span class="cbp-pgprice">$35</span>
+						</div>
+					</a>
+				</li>
+				<li class="wthree aits w3l">
+					<div class="cbp-pgcontent" id="women-8">
+						<span class="cbp-pgrotate"><i class="fa fa-exchange" aria-hidden="true"></i></span>
+						<a href="womens_single.html">
+							<div class="cbp-pgitem a3ls">
+								<div class="cbp-pgitem-flip">
+									<img src="images/18-front.jpg" alt="Groovy Apparel">
+									<img src="images/18-back.jpg" alt="Groovy Apparel">
+								</div>
+							</div>
+						</a>
+						<ul class="cbp-pgoptions w3l">
+							<li class="cbp-pgoptcompare">
+								<input type="checkbox" name="checkboxG38" id="checkboxG38" class="css-checkbox w3"><label for="checkboxG38" class="css-label"></label>
+							</li>
+							<li class="cbp-pgoptfav">
+								<span>5 <i class="fa fa-star" aria-hidden="true"></i></span>
+							</li>
+							<li class="cbp-pgoptsize agile">
+								<span data-size="XL">XL</span>
+								<div class="cbp-pgopttooltip">
+									<span data-size="XL">XL</span>
+									<span data-size="L">L</span>
+									<span data-size="M">M</span>
+									<span data-size="S">S</span>
+								</div>
+							</li>
+							<li class="cbp-pgoptcart">
+									<form action="#" method="post">
+										<input type="hidden" name="cmd" value="_cart">
+										<input type="hidden" name="add" value="1"> 
+										<input type="hidden" name="w3l_item" value="Pink Trousers "> 
+										<input type="hidden" name="amount" value="25.00"> 
+										<button type="submit" class="w3l-cart pw3l-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+										<span class="w3-agile-line"> </span>
+										<a href="#" data-toggle="modal" data-target="#myModal1"></a>
+									</form>
+							</li>
+						</ul>
+					</div>
+					<a href="womens_single.html">
+						<div class="cbp-pginfo w3layouts">
+							<h3>Pink Trousers</h3>
+							<span class="cbp-pgprice">$25</span>
+						</div>
+					</a>
+				</li>
+				<li class="wthree aits w3l">
+					<div class="cbp-pgcontent" id="women-5">
+						<span class="cbp-pgrotate"><i class="fa fa-exchange" aria-hidden="true"></i></span>
+						<a href="womens_single.html">
+							<div class="cbp-pgitem a3ls">
+								<div class="cbp-pgitem-flip">
+									<img src="images/15-front.jpg" alt="Groovy Apparel">
+									<img src="images/15-back.jpg" alt="Groovy Apparel">
+								</div>
+							</div>
+						</a>
+						<ul class="cbp-pgoptions w3l">
+							<li class="cbp-pgoptcompare">
+								<input type="checkbox" name="checkboxG35" id="checkboxG35" class="css-checkbox w3"><label for="checkboxG35" class="css-label"></label>
+							</li>
+							<li class="cbp-pgoptfav">
+								<span>5 <i class="fa fa-star" aria-hidden="true"></i></span>
+							</li>
+							<li class="cbp-pgoptsize agile">
+								<span data-size="XL">XL</span>
+								<div class="cbp-pgopttooltip">
+									<span data-size="XL">XL</span>
+									<span data-size="L">L</span>
+									<span data-size="M">M</span>
+									<span data-size="S">S</span>
+								</div>
+							</li>
+							<li class="cbp-pgoptcart">
+								<button class="btn btn-danger agileits my-cart-btn" data-id="women-5" data-name="Blue Legging" data-summary="Blue Legging" data-price="17" data-quantity="1" data-image="images/15-front.jpg"><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+							</li>
+						</ul>
+					</div>
+					<a href="womens_single.html">
+						<div class="cbp-pginfo w3layouts">
+							<h3>Blue Legging</h3>
+							<span class="cbp-pgprice">$17</span>
+						</div>
+					</a>
+					 <?PHP }
                                    // echo '<p align="center">Page : ';
                                     for ($i=1; $i<=$nombreDePages ; $i++)
                                      {
                                         if ($i==$pageActuelle) {
                                             # code...
                                          ?>
-                                   
+                                    
                             <div class="custom-pagination">
                                 <a class="page-link" href="#"><?php echo $i; ?></a>
                                 <?php
@@ -424,7 +746,7 @@ $listeProduits=$db->query('SELECT * From produits inner join categorie on produi
                                          {
 
                                             ?>
-                                            <a href="womens.php?page=<?php echo $i; ?>" class="page-link">
+                                            <a href="library-assets.php?page=<?php echo $i; ?>" class="page-link">
                                                                             <?php echo $i;?> </a>
                                                                             <?php
                                          }
@@ -433,6 +755,7 @@ $listeProduits=$db->query('SELECT * From produits inner join categorie on produi
                                     ?>
                                 
                             </div>
+				</li>
 			</ul>
 		</div>
 	</div>
@@ -468,7 +791,7 @@ $listeProduits=$db->query('SELECT * From produits inner join categorie on produi
 			<div class="col-md-4 agileinfofooter-grid agileinfofooter-grid1">
 				<ul>
 					<li><a href="about.html">ABOUT</a></li>
-					<li><a href="womens.php">WOMEN'S</a></li>
+					<li><a href="womens.html">WOMEN'S</a></li>
 					<li><a href="womens_accessories.html">WOMEN'S ACCESSORIES</a></li>
 					<li><a href="womens_accessories.html">EVENEMENTS</a></li>
 					<li><a href="womens_accessories.html">PROMOTION</a></li>
@@ -510,7 +833,7 @@ $listeProduits=$db->query('SELECT * From produits inner join categorie on produi
 	<!-- Copyright -->
 	<div class="w3lscopyrightaits">
 		<div class="col-md-8 w3lscopyrightaitsgrid w3lscopyrightaitsgrid1">
-			<p>2019 © Hager Ayed | Designed by  <a href="https://www.facebook.com/firas.sougui.3" target="=_blank"> NeoDev </a></p>
+			<p>2019 © Hager Ayed | Designed by  <a href="https://www.facebook.com/firas.sougui.3" target="=_blank"> Firas Sougui </a></p>
 		</div>
 		<div class="col-md-4 w3lscopyrightaitsgrid w3lscopyrightaitsgrid2">
 			<div class="agilesocialwthree">

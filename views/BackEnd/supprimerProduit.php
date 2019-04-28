@@ -1,5 +1,5 @@
 <?PHP
-include "produits/core/produitsCore.php";
+include "../../core/produitsCore.php";
 $produitsC=new ProduitsCore();
 if (isset($_POST["IDP"])){
 	$produitsC->supprimerProduits($_POST["IDP"]);

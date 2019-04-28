@@ -1,5 +1,5 @@
 <?PHP
-include "categories/core/categoriesC.php";
+include "../../core/categoriesC.php";
 $categoriesC=new CategoriesC();
 if (isset($_POST["id"])){
 	$categoriesC->supprimerCategorie($_POST["id"]);
