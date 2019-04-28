@@ -73,7 +73,7 @@
         <nav id="sidebar" class="">
             <div class="sidebar-header">
                 <a href="index.html"><img class="main-logo" src="img/logo/logo.png" alt="" /></a>
-                <strong><a href="index.html"><img src="img/logo/logosn.png" alt="" /></a></strong>
+                <strong><a href="index.html"><img src="img/logo/logo.png" alt="" /></a></strong>
             </div>
             <!--Gauche -->
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
